@@ -1,0 +1,27 @@
+.custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 32px;
+    height: 32px;
+    pointer-events: none;
+    z-index: 9999;
+    background-image: url('/cursor.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: invert(1);
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease-out, background-image 0.2s ease;
+    will-change: transform;
+}
+
+.custom-cursor.pointer {
+    background-image: url('/hand-curosr.png');
+}
+
+/* Hide default cursor only when custom cursor is active to avoid accessibility issues if JS fails */
+body.custom-cursor-active,
+body.custom-cursor-active * {
+    cursor: none !important;
+}
